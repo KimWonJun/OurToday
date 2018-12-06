@@ -1,14 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:OurToday"
-             x:Class="OurToday.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+             x:Class="OurToday.MainPage"
+             Title="오늘 우리">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="CenterAndExpand">
+            <Label Text="오늘 우리"
+               FontSize="Large"
+               TextColor="#ffffff"
+               HorizontalOptions="CenterAndExpand"/>
+            <Button Text="삭제"
+                    Clicked="ClearDiary"
+                    HorizontalOptions="End"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <StackLayout x:Name="main_layout"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center">
+        <ListView Margin="10"
+                  x:Name="diaryListView" HorizontalOptions="FillAndExpand"
+                  ItemSelected="OnClickDiaryItem" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Margin="3"
+                                   Text="{Binding Title}"
+                                   FontSize="Large"/>
+                            <Label Margin="3"
+                                   Text="{Binding Content}"
+                                   TextColor="#979797"
+                                   FontSize="Default"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>

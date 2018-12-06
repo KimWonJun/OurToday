@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OurToday.SplashPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#86B7DC">
+            <Image x:Name="logo"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   WidthRequest="150"
+                   Source="logo.png"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

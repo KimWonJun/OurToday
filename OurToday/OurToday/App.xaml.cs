@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,21 +7,23 @@ namespace OurToday
 {
     public partial class App : Application
     {
+        string DB_PATH = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Diary.db");
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new SplashPage();
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            var db = new SQLiteConnection(DB_PATH);
+            db.CreateTable<Diary>();
         }
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
+            
         }
 
         protected override void OnResume()
