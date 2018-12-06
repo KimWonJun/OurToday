@@ -12,14 +12,18 @@ namespace OurToday
         string DB_PATH = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Diary.db");
         Image image = new Image()
         {
+            Margin = 30,
             Source = "icon.png",
             WidthRequest = 100,
+            VerticalOptions = LayoutOptions.Center,
+            HorizontalOptions = LayoutOptions.Center,
         };
         Label label = new Label()
         {
-            Margin = 30,
+            Margin = 10,
             Text = "아직 일기가 없어요! 일기를 추가해보세요!",
             TextColor = Color.FromHex("#979797"),
+            HorizontalOptions = LayoutOptions.Center,
         };
 
         public ObservableCollection<Diary> diaryList;
@@ -28,6 +32,8 @@ namespace OurToday
         {
             InitializeComponent();
             LoadData();
+            WritePage.ac = LoadData;
+            DiaryPage.ac = LoadData;
         }
 
         /*
@@ -51,7 +57,6 @@ namespace OurToday
             }
             else
             {
-                // TODO: List C#으로 구현, ItemSource에 넣기
                 main_layout.Children.Remove(image);
                 main_layout.Children.Remove(label);
                 diaryListView.ItemsSource = diaryList;
@@ -61,15 +66,15 @@ namespace OurToday
 
         private void WriteDiary(object sender, EventArgs e)
         {
-            WritePage.ac = LoadData;
             Navigation.PushAsync(new WritePage());
             LoadData();
         }
 
-        private void OnClickDiaryItem(object sender, SelectedItemChangedEventArgs e)
+        private async void OnClickDiaryItem(object sender, SelectedItemChangedEventArgs e)
         {
-            var selectedDiary = (Diary) e.SelectedItem;
-            Navigation.PushAsync(new DiaryPage(selectedDiary.Title, selectedDiary.Content));
+            if ((sender as ListView).SelectedItem == null) return;
+            await Navigation.PushAsync(new DiaryPage(e.SelectedItem as Diary));
+            (sender as ListView).SelectedItem = null;
         }
 
         private void ClearDiary(object sender, EventArgs e)

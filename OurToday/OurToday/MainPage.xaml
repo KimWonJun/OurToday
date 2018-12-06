@@ -9,7 +9,7 @@
                TextColor="#ffffff"/>
     </NavigationPage.TitleView>
     <StackLayout x:Name="main_layout"
-                 HorizontalOptions="Center"
+                 HorizontalOptions="FillAndExpand"
                  VerticalOptions="FillAndExpand">
         <ListView Margin="10"
                   RowHeight="60"
@@ -33,6 +33,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button
+            Margin="20"
             x:Name="add_btn"
             BackgroundColor="#86B7DC"
             Text="추가하기"

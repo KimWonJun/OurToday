@@ -14,7 +14,7 @@ namespace OurToday
 
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; set; }
-        [MaxLength(20)]
+        [MaxLength(100)]
         public string Title { get; set; }
         public string Content
         {

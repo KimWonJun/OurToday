@@ -8,12 +8,20 @@
                TextColor="#ffffff"/>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout Margin="10">
+        <StackLayout Margin="10"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand">
             <Label x:Name="title_label"
                    Margin="10"
                    FontSize="Large"/>
             <Label x:Name="content_label"
+                   VerticalOptions="FillAndExpand"
                    Margin="10"/>
+            <Button HorizontalOptions="FillAndExpand"
+                    Clicked="OnDeleteBtnListener"
+                    Text="삭제하기"
+                    BackgroundColor="#86B7DC"
+                    TextColor="#ffffff"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
