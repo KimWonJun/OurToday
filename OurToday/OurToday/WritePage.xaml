@@ -5,27 +5,24 @@
     <NavigationPage.TitleView>
         <Label Text="오늘 우리"
                FontSize="Large"
-               TextColor="#ffffff"
-               HorizontalOptions="CenterAndExpand"/>
+               TextColor="#ffffff"/>
     </NavigationPage.TitleView>
     
     <StackLayout
         VerticalOptions="FillAndExpand">
         <Entry
             x:Name="title_edit"
-            Margin="20"
+            Margin="20,20,20,0"
             MaxLength="50"
             Keyboard="Default"
             Placeholder="제목을 입력해주세요"/>
 
-        <StackLayout>
-            <Editor
+        <Editor
             x:Name="content_edit"
-            Margin="20"
+            Margin="20,0,20,0"
             VerticalOptions="FillAndExpand"
             AutoSize="Disabled"
             Placeholder="내용을 입력해주세요"/>
-        </StackLayout>
 
         <Button
             Margin="20"
@@ -33,7 +30,7 @@
             BorderColor="#86b7dc"
             BorderWidth="1"
             Text="저장!"
-            Clicked="onClickListener"
+            Clicked="OnClickListener"
             TextColor="#000000"/>
     </StackLayout>
 </ContentPage>

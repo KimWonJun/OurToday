@@ -4,22 +4,17 @@
              x:Class="OurToday.MainPage"
              Title="오늘 우리">
     <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal"
-                     HorizontalOptions="CenterAndExpand">
-            <Label Text="오늘 우리"
+        <Label Text="오늘 우리"
                FontSize="Large"
-               TextColor="#ffffff"
-               HorizontalOptions="CenterAndExpand"/>
-            <Button Text="삭제"
-                    Clicked="ClearDiary"
-                    HorizontalOptions="End"/>
-        </StackLayout>
+               TextColor="#ffffff"/>
     </NavigationPage.TitleView>
     <StackLayout x:Name="main_layout"
                  HorizontalOptions="Center"
-                 VerticalOptions="Center">
+                 VerticalOptions="FillAndExpand">
         <ListView Margin="10"
+                  RowHeight="60"
                   x:Name="diaryListView" HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
                   ItemSelected="OnClickDiaryItem" >
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -29,7 +24,7 @@
                                    Text="{Binding Title}"
                                    FontSize="Large"/>
                             <Label Margin="3"
-                                   Text="{Binding Content}"
+                                   Text="{Binding DisplayContent}"
                                    TextColor="#979797"
                                    FontSize="Default"/>
                         </StackLayout>
@@ -37,6 +32,12 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button
+            x:Name="add_btn"
+            BackgroundColor="#86B7DC"
+            Text="추가하기"
+            Clicked="WriteDiary"
+            TextColor="#ffffff"/>
     </StackLayout>
 
 </ContentPage>
