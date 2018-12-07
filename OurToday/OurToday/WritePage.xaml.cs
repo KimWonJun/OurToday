@@ -21,7 +21,14 @@ namespace OurToday
             var db = new SQLiteConnection(DB_PATH);
             db.CreateTable<Diary>();
 
-            if (title_edit.Text.Length > 0 && title_edit.Text.Length <= 100)
+            if (title_edit.Text.Length == 0 || content_edit.Text.Length == 0)
+            {
+                // Toast
+            } else if (title_edit.Text.Length > 100)
+            {
+                // Toast
+            }
+            else
             {
                 var newDiary = new Diary(title_edit.Text, content_edit.Text);
                 db.Insert(newDiary);

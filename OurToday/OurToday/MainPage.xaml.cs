@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
 using SQLite;
-using System.Threading.Tasks;
 
 namespace OurToday
 {
